@@ -4,37 +4,23 @@ with open('CalorieCounting.txt', 'r') as file:
     Input = file.read()
 
 
-v= Input.split("\n")
-print(v)
+v= Input.split("\n\n")
+
+a = [i.split("\n") for i in v if i != '']
+
+
+i = [[int(j) for j in i if j ] for i in a]
+
+b = [max(i[k]) for k in range(len(i)) if i[k] != []]
+
+c = max(b)
+
+#print(v)
+#print(a)
+#print(i)
+print(b)
+print(c)
 
 
 
-elfs = []
-elf = []
-
-
-for i in range(len(v)):
-    if v[i] != "":
-        elf.append(int(v[i]))
-    if v[i] == "" or i == len(v)-1:
-        elfs.append(elf)
-        elf = []
-
-print(elfs)
-
-sums = [sum(i) for i in elfs]
-
-print(sums)
-
-maximum = 0
-index = 0
-for i, item in enumerate(sums):
-    if item > maximum:
-        index = i
-        maximum = item
-
-
-print(i)
-print(" ")
-print(maximum)
 
